@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: java-springboot-zscbmata-gitops
+  description: This is GitOps manifest for java-springboot-zscbmata   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=java-springboot-zscbmata
+    backstage.io/kubernetes-id: java-springboot-zscbmata 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: java-springboot-zscbmata
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:java-springboot-zscbmata
